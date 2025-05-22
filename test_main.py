@@ -7,3 +7,9 @@ def test_read_name():
     response = client.get("/hello/world")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello world"}
+
+
+def test_health_check():
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "OK"}
